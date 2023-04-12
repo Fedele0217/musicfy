@@ -5,6 +5,10 @@ public class SongDTO {
     private String name;
     private Integer duration;
 
+    private boolean isDeleted;
+
+    private double price;
+
     private long idArtist;
     private long idType;
 
@@ -43,6 +47,22 @@ public class SongDTO {
 
     public long getIdType() {
         return idType;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        isDeleted = deleted;
     }
 
     public void setIdType(long idType) {

@@ -16,16 +16,20 @@ public class Song {
 
     @Column(name="duration")
     private Integer duration;
+    @Column(name = "price", nullable = false, columnDefinition = "DECIMAL(5,2) NOT NULL DEFAULT 0.0")
+    private double price;
 
-
+ @Column(name = "is_deleted", nullable = false, columnDefinition = "BOOLEAN NOT NULL DEFAULT false")
+ private boolean isDeleted;
     @ManyToOne
     @JoinColumn(name="id_artist",nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+ //   @OnDelete(action = OnDeleteAction.CASCADE)
     private Artist artist ;
 
 
     @ManyToOne
     @JoinColumn(name="id_type",nullable = false)
+//    @OnDelete(action = OnDeleteAction.CASCADE)
     private Type type;
 
  public long getId() {
@@ -50,6 +54,22 @@ public class Song {
 
  public void setDuration(Integer duration) {
   this.duration = duration;
+ }
+
+ public double getPrice() {
+  return price;
+ }
+
+ public void setPrice(double price) {
+  this.price = price;
+ }
+
+ public boolean isDeleted() {
+  return isDeleted;
+ }
+
+ public void setDeleted(boolean deleted) {
+  isDeleted = deleted;
  }
 
  public Artist getArtist() {

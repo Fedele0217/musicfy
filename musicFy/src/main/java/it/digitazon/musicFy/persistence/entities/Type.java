@@ -16,7 +16,8 @@ public class Type {
 @Column(name="name",nullable = false)
     private String name;
 
-
+@Column(name = "is_deleted", nullable = false, columnDefinition = "BOOLEAN NOT NULL DEFAULT false")
+private boolean isDeleted;
 @OneToMany(mappedBy = "type")
 private List<Song> songs;
 
@@ -34,6 +35,14 @@ private List<Song> songs;
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        isDeleted = deleted;
     }
 
     public List<Song> getSongs() {

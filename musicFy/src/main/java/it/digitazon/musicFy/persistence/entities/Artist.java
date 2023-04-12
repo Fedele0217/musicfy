@@ -14,6 +14,8 @@ public class Artist {
     @Column(name="name",nullable = false)
     private String name;
 
+    @Column(name = "is_deleted", nullable = false, columnDefinition = "BOOLEAN NOT NULL DEFAULT false")
+    private boolean isDeleted;
     @Column(name="alias")
     private String alias;
 
@@ -43,6 +45,14 @@ public class Artist {
 
     public void setAlias(String alias) {
         this.alias = alias;
+    }
+
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        isDeleted = deleted;
     }
 
     public List<Song> getSongs() {

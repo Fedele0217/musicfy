@@ -63,14 +63,6 @@ public class ArtistController {
                 .toList();
     }
 
-
-
-
-
-
-
-
-
     private ArtistDTO convertToDto(Artist artist){
         return modelMapper.map(artist, ArtistDTO.class);
         }
