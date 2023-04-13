@@ -73,13 +73,7 @@ public class SongController {
 
 
     private SongDTO convertToDto(Song song){
-        SongDTO dto = modelMapper.map(song, SongDTO.class);
-        dto.setIdType(song.getType().getId());
-        dto.setIdArtist(song.getArtist().getId());
-        return dto;
-
-
-
+        return modelMapper.map(song, SongDTO.class);
         }
     private Song convertToEntity(SongDTO dto){
         Song song = modelMapper.map(dto,Song.class);

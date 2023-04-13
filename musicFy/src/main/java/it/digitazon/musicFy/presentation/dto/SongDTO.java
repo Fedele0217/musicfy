@@ -1,5 +1,7 @@
 package it.digitazon.musicFy.presentation.dto;
 
+import java.util.Date;
+
 public class SongDTO {
     private long id;
     private String name;
@@ -11,6 +13,8 @@ public class SongDTO {
 
     private long idArtist;
     private long idType;
+
+    private Date publishDate;
 
 
     public long getId() {
@@ -67,5 +71,13 @@ public class SongDTO {
 
     public void setIdType(long idType) {
         this.idType = idType;
+    }
+
+    public Date getPublishDate() {
+        return publishDate;
+    }
+
+    public void setPublishDate(Date publishDate) {
+        this.publishDate = publishDate;
     }
 }

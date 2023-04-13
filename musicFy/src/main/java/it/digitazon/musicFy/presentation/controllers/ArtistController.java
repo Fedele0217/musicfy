@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.List;
 
 @RestController
@@ -64,16 +65,14 @@ public class ArtistController {
     }
 
     private ArtistDTO convertToDto(Artist artist){
+
         return modelMapper.map(artist, ArtistDTO.class);
         }
     private Artist convertToEntity(ArtistDTO dto){
-        return modelMapper.map(dto,Artist.class );
+        return modelMapper.map(dto, Artist.class);
     }
 
     private SongDTO convertToSongDto(Song song ){
-        SongDTO dto = modelMapper.map(song,SongDTO.class);
-        dto.setIdArtist(song.getArtist().getId());
-        dto.setIdType(song.getType().getId());
-        return dto;
+        return modelMapper.map(song,SongDTO.class);
     }
 }

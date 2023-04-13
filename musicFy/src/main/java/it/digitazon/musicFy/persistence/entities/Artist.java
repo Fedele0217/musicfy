@@ -2,6 +2,7 @@ package it.digitazon.musicFy.persistence.entities;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -18,6 +19,9 @@ public class Artist {
     private boolean isDeleted;
     @Column(name="alias")
     private String alias;
+
+    @Column(name = "birth_date")
+    private Date birthDate;
 
 
     @OneToMany(mappedBy="artist")
@@ -57,6 +61,14 @@ public class Artist {
 
     public List<Song> getSongs() {
         return songs;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
     public void setSongs(List<Song> songs) {
