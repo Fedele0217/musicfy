@@ -15,12 +15,12 @@ public class MusicFyConfiguration {
     public ModelMapper modelMapper() {
         ModelMapper modelMapper = new ModelMapper(); // Fa quello che noi facevamo nel service, mappa il dto alle entità e viceversa
 
-    TypeMap<Artist, ArtistDTO> propertyMapper = modelMapper.createTypeMap(Artist.class, ArtistDTO.class);
-    propertyMapper.addMapping(Artist::getBirthDate, ArtistDTO::convertDateToString);
+    TypeMap<Artist, ArtistDTO> artistToDTOMapper = modelMapper.createTypeMap(Artist.class, ArtistDTO.class);
+    artistToDTOMapper.addMapping(Artist::getBirthDate, ArtistDTO::convertDateToString);
 
 
-    TypeMap<ArtistDTO, Artist> propertyMapperDTO = modelMapper.createTypeMap(ArtistDTO.class, Artist.class);
-    propertyMapperDTO.addMapping(ArtistDTO::convertBirthDate, Artist::setBirthDate);
+    TypeMap<ArtistDTO, Artist> DTOToArtistMapper = modelMapper.createTypeMap(ArtistDTO.class, Artist.class);
+    DTOToArtistMapper.addMapping(ArtistDTO::convertBirthDate, Artist::setBirthDate);
 
     return modelMapper;
 
